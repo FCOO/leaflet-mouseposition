@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="da" style="font-size: 100%">
+<head>
+	<title>fcoo.dk - leaflet-mouseposition - Demo</title>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv='x-dns-prefetch-control' content='on'>
+
+	<meta name='copyright' content='FCOO'>
+	<meta name='owner' content='FCOO'>
+
+  <link  href="bower_components.css" rel="stylesheet">	
+	<style>
+		#mouseposition {
+			width: 20em;
+			height: 2em;
+			font-size: 1em;
+			border: 3px solid black;
+			font-family: arial;
+			margin: 2px;
+			line-height: 1.8em;
+			padding: 0.1em;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="map" style="width: 800px; height: 600px"></div>
+	<div id="mouseposition">123456789012345678901234567890</div>
+
+	
+	<script src="bower_components.js"></script>
+	<script src="../src/leaflet-mouseposition.js"></script>
+	<script>
+		var map = L.map('map').setView([56.2, 11.5], 6);
+		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors</a>'
+     }).addTo(map);
+
+		L.circle([55.45, 16.25], 50000, {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5
+		}).addTo(map).bindPopup("I am a circle.");
+
+
+		map.on('mouseposition', function( mouseEvent ){
+			document.getElementById('mouseposition').innerHTML = mouseEvent.latlng ? mouseEvent.latlng.toString() : 'OUT';
+		});
+	
+	</script>
+</body>
+</html>
