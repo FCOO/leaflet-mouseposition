@@ -3,7 +3,7 @@
 
 
 ## Description
-Extension to leaflet to fire a new event `mouseposition` when the mouse is moved on the map **AND** when the map is moved *'under'* without moving the mouse on the screen. 
+Extension to leaflet to fire a new event `mouseposition` when the mouse is moved on the map **OR** when the map is moved *'under'* without moving the mouse on the screen. 
 This happens e.q. when the map is being zoomed or panned using the keyboards
 
 ## Installation
@@ -29,4 +29,4 @@ Copyright (c) 2015 [FCOO](https://github.com/FCOO)
 
 ## Contact information
 
-NielsHolt niels@steenbuchholt.dk
+[Niels Holt](https://github.com/NielsHolt)
