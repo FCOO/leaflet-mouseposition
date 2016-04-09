@@ -1,14 +1,13 @@
 {
   "name": "leaflet-mouseposition",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/FCOO/leaflet-mouseposition",
   "authors": [
     "NielsHolt"
   ],
   "description": "",
   "main": [
-    "dist/leaflet-mouseposition.min.js",
-    "dist/leaflet-mouseposition.min.css"
+    "dist/leaflet-mouseposition.min.js"
   ],
   "repository": {
     "type": "git",
