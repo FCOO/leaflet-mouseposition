@@ -42,7 +42,7 @@
 		}, this);
 
 		//Add zoomend-event
-		this.on('zoomend', function(){
+		this.on('zoomend popupopen', function(){
 			onMapMove( this );
 		}, this);
 
