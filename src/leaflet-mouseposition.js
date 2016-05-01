@@ -29,6 +29,10 @@
 		//Add mousemove-event
 		this.on('mousemove', function( mouseEvent ){
 			mouseEvent.type = 'mouseposition';
+			//Correct for -180 > longitude and longitude > 180
+			if ((mouseEvent.latlng.lng < -180) || (mouseEvent.latlng.lng > 180))
+				mouseEvent.latlng.lng = (mouseEvent.latlng.lng + 360) % 360;
+
 			this._mouseposition_mouseevent = mouseEvent;
 			this.fireEvent( 'mouseposition', mouseEvent );
 		}, this);
