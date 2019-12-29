@@ -9,7 +9,7 @@
 	<meta name='copyright' content='FCOO'>
 	<meta name='owner' content='FCOO'>
 
-  <link  href="bower_components.css" rel="stylesheet">	
+  <link  href="bower_components.css" rel="stylesheet">
 	<style>
 		#mouseposition {
 			width: 20em;
@@ -29,7 +29,7 @@
 	<div id="map" style="width: 800px; height: 600px"></div>
 	<div id="mouseposition"></div>
 
-	
+
 	<script src="bower_components.js"></script>
 	<script src="../src/leaflet-mouseposition.js"></script>
 	<script>
@@ -49,7 +49,7 @@
 		map.on('mouseposition', function( mouseEvent ){
 			document.getElementById('mouseposition').innerHTML = mouseEvent.latlng ? mouseEvent.latlng.toString() : 'OUT';
 		});
-	
+
 	</script>
 </body>
 </html>

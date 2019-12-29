@@ -10,6 +10,19 @@
 (function (L/*, window, document, undefined*/) {
     "use strict";
 
+    function adjust( mouseEvent ){
+        //Correct for -180 > longitude and longitude > 180
+        var lng = mouseEvent.latlng.lng;
+        lng = lng % 360;
+        if (lng > 180)
+            lng = lng - 360;
+        else
+            if (lng < -180)
+                lng = lng + 360;
+        mouseEvent.latlng.lng = lng;
+
+        return mouseEvent;
+    }
 
     function onMapMove( map ){
         if (map._mouseposition_mouseevent){
@@ -17,7 +30,7 @@
             if ( !newLatlng.equals( map._mouseposition_mouseevent.latlng ) ){
               //The mouse is at a new position
                 map._mouseposition_mouseevent.latlng = newLatlng;
-                map.fire( 'mouseposition', map._mouseposition_mouseevent );
+                map.fire( 'mouseposition', adjust( map._mouseposition_mouseevent ) );
             }
         }
     }
@@ -30,17 +43,7 @@
         this.on('mousemove', function( mouseEvent ){
             mouseEvent.type = 'mouseposition';
 
-            //Correct for -180 > longitude and longitude > 180
-            var lng = mouseEvent.latlng.lng;
-            lng = lng % 360;
-            if (lng > 180)
-                lng = lng - 360;
-            else
-                if (lng < -180)
-                    lng = lng + 360;
-            mouseEvent.latlng.lng = lng;
-
-            this._mouseposition_mouseevent = mouseEvent;
+            this._mouseposition_mouseevent = adjust( mouseEvent );
             this.fireEvent( 'mouseposition', mouseEvent );
         }, this);
 
@@ -53,7 +56,7 @@
         }, this);
 
         //Add zoomend-event
-        this.on('zoomend popupopen', function(){
+        this.on('moveend zoomend popupopen', function(){
             onMapMove( this );
         }, this);
 
