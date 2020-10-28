@@ -1,6 +1,6 @@
 {
   "name": "leaflet-mouseposition",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "homepage": "https://github.com/FCOO/leaflet-mouseposition",
   "authors": [
     "NielsHolt"
@@ -14,15 +14,8 @@
     "url": "git://github.com/FCOO/leaflet-mouseposition.git"
   },
   "dependencies": {
-    "leaflet": "latest"
-  },
-  "overrides": {
-    "leaflet": {
-      "main": [
-        "dist/leaflet-src.js",
-        "dist/leaflet.css"
-      ]
-    }
+    "leaflet": "latest",
+    "leaflet-bugfix": "fcoo/leaflet-bugfix#^2.0.2"
   },
   "devDependencies": {},
   "license": "MIT",
